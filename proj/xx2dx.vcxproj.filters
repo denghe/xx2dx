@@ -45,8 +45,10 @@
     <ClInclude Include="..\xxlib\xx_includes.h">
       <Filter>xxlib</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\pch.cpp" />
   </ItemGroup>
 </Project>

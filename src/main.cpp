@@ -1,29 +1,4 @@
-#include <winsdkver.h>
-#define _WIN32_WINNT 0x0601
-#include <sdkddkver.h>
-#define NOMINMAX
-#define NODRAWTEXT
-#define NOGDI
-#define NOBITMAP
-#define NOMCX
-#define NOSERVICE
-#define NOHELP
-#define WIN32_LEAN_AND_MEAN
-#include <d3d11.h>
-#include <dxgi.h>
-#include <d3dcompiler.h>
-#include <DirectXMath.h>
-#include <DirectXColors.h>
-
-#include <algorithm>
-#include <cmath>
-#include <cstdint>
-#include <exception>
-#include <memory>
-#include <stdexcept>
-#include <string>
-
-#include <xx_helpers.h>
+#include "pch.h"
 
 using namespace DirectX;
 
@@ -257,15 +232,15 @@ HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow) {
 	wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
 	wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
 	wcex.lpszMenuName = nullptr;
-	wcex.lpszClassName = L"DX11Test2";
+	wcex.lpszClassName = L"xx2dx";
 	wcex.hIconSm = LoadIcon(wcex.hInstance, L"IDI_ICON");
 	if (!RegisterClassEx(&wcex)) return E_FAIL;
 
 	g_hInst = hInstance;
-	RECT rc{ 0, 0, 1920, 1080 };
+	RECT rc{ 0, 0, 1800, 1000 };
 	AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
 
-	g_hWnd = CreateWindowEx(0, L"DX11Test2", L"DX11Test2 Title"
+	g_hWnd = CreateWindowEx(0, L"xx2dx", L"xx2dx title"
 		, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT
 		, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance, nullptr);
 	if (!g_hWnd) return E_FAIL;
